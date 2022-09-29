@@ -1,7 +1,8 @@
 <h1>Stocking</h1>
 <p>Hello!  This is my first Rails App!</p>
 
-<%= stock=StockQuote::Stock.quote("T"), (api_key: 
-sk_03de06d48e204c858c4b8980cd9484a0) %>
+<% StockQuote::Stock.new(api_key: 'sk_03de06d48e204c858c4b8980cd9484a0') %>
+
+<%  stock = StockQuote::Stock.quote("t") %>
 
 <%+ stock.inspect %>
