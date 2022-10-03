@@ -1,8 +1,14 @@
 <h1>Stocking</h1>
-<p>Hello!  This is my first Rails App!</p>
 
-<% StockQuote::Stock.new(api_key: 'sk_03de06d48e204c858c4b8980cd9484a0') %>
+<%= form_tag root_path :method => 'POST' do %>
+    <%= text_field_tag 'ticker', nil, placeholder: 
+        "Enter Ticket Symbol", size: 40 %>
+    <%= submit_tag 'Lookup' %>
+    <% end %>
+</br>
 
-<%  stock = StockQuote::Stock.quote("t") %>
-
-<%+ stock.inspect %>
+"test"
+<% if @stock %>
+    <%= @test %>
+    <%= @stock.latest_price %>
+<% end %>
