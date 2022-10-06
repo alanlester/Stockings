@@ -1,14 +1,24 @@
 <h1>Stocking</h1>
 
-<%= form_tag root_path :method => 'POST' do %>
+<%= form_tag root_path :method => 'post' do %>
     <%= text_field_tag 'ticker', nil, placeholder: 
         "Enter Ticket Symbol", size: 40 %>
     <%= submit_tag 'Lookup' %>
-    <% end %>
+<% end %>
 </br>
 
-"test"
-<% if @stock %>
-    <%= @test %>
-    <%= @stock.latest_price %>
+<%= @hello_message %>
+
+ <%= @nothing %>
+ <%= @error %>
+<% if @stock %> 
+
+    "here"
+  <%= @stock.inspect %>
+<% elsif @nothing %>
+    <%= @nothing %>
+<% end %>
+
+<% if @error%>
+    <%= @error %>
 <% end %>
