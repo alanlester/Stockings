@@ -1,8 +1,19 @@
 
 <h1>Stocks</h1>
 
-<div id="stocks">
+
+<div>
   <% @stocks.each do |stock| %>
+    <% @api = StockQuote::Stock.new(api_key: 'sk_03de06d48e204c858c4b8980cd9484a0') %>
+
+       <% if stock.ticker == "" %>
+          <% @nothing = "N/A" %>
+       <% elsif stock.ticker %>
+          <% @ticker = StockQuote::Stock.quote(stock.ticker) %>
+          <% if !stock.ticker %>
+            <% @error = "N/A" %>
+          <% end %>
+      <% end %>
     <%= render stock %>
     <p>
       <%= link_to "Show this stock", stock %>
@@ -10,4 +21,5 @@
   <% end %>
 </div>
 
+<br/><br/>
 <%= link_to "New stock", new_stock_path %>
